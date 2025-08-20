@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import logoImage from '../assets/Emblemlogo.jpg';
 
-const Navbar = ({ setCurrentPage }) => {
+const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
 
   return (
     <div className="w-full">
@@ -57,7 +59,7 @@ const Navbar = ({ setCurrentPage }) => {
           <div className="md:hidden">
             {/* Logo Section - Mobile */}
             <div className="flex items-center justify-center mb-4">
-              <div className="flex items-center space-x-3 cursor-pointer" onClick={() => setCurrentPage('home')}>
+              <Link to="/" className="flex items-center space-x-3 cursor-pointer">
                 <div className="relative">
                   <div className="w-14 h-14 bg-blue-600 rounded-full flex items-center justify-center overflow-hidden">
                     <img src={logoImage} alt="School Logo" className="w-12 h-12 object-cover rounded-full" />
@@ -69,12 +71,12 @@ const Navbar = ({ setCurrentPage }) => {
                   </div>
                 </div>
                 <div className="text-center">
-                    <span>Vidya Bharati Shikshna Kendra </span>
+                  <span>Vidya Bharati Shikshna Kendra </span>
                   <div className="text-xl font-bold text-red-800">VIDYA BHARATI </div>
                   <div className="text-lg font-bold text-blue-600"> ENGLISH MEDIUM PRIMARY SCHOOL -(CBSC)</div>
-                    <div className="text-lg font-bold text-blue-600"> RAICHUR</div>
+                  <div className="text-lg font-bold text-blue-600"> RAICHUR</div>
                 </div>
-              </div>
+              </Link>
             </div>
             
             {/* Contact Info Section - Mobile */}
@@ -116,7 +118,7 @@ const Navbar = ({ setCurrentPage }) => {
                 </div>
                 <div>
                   <div className="text-sm font-bold text-gray-800">AFFILIATED TO CBSE</div>
-                  <div className="text-sm text-blue-600">AFF NO.: 831506 | CODE: 47185</div>
+                  <div className="text-sm text-blue-600">AFF NO.: 830589 | CODE: 45582</div>
                 </div>
               </div>
             </div>
@@ -125,7 +127,7 @@ const Navbar = ({ setCurrentPage }) => {
           {/* Desktop Layout */}
           <div className="hidden md:flex items-center justify-between">
             {/* Logo Section */}
-            <div className="flex items-center space-x-4 cursor-pointer" onClick={() => setCurrentPage('home')}>
+            <Link to="/" className="flex items-center space-x-4 cursor-pointer">
               <div className="relative">
                 <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center overflow-hidden">
                   <img src={logoImage} alt="School Logo" className="w-14 h-14 object-cover rounded-full" />
@@ -137,12 +139,12 @@ const Navbar = ({ setCurrentPage }) => {
                 </div>
               </div>
               <div >
-                    <span>Vidya Bharati Shikshna Kendra </span>
-                  <div className="text-xl font-bold text-red-800">VIDYA BHARATI </div>
-                  <div className="text-lg font-bold text-blue-600"> ENGLISH MEDIUM PRIMARY SCHOOL -(CBSC) </div>
-                    <div className="text-lg font-bold text-blue-600"> RAICHUR</div>
-                </div>
-            </div>
+                <span>Vidya Bharati Shikshna Kendra </span>
+                <div className="text-xl font-bold text-red-800">VIDYA BHARATI </div>
+                <div className="text-lg font-bold text-blue-600"> ENGLISH MEDIUM PRIMARY SCHOOL -(CBSC) </div>
+                <div className="text-lg font-bold text-blue-600"> RAICHUR</div>
+              </div>
+            </Link>
             
             {/* Contact Info Section - Desktop */}
             <div className="flex items-center space-x-8">
@@ -206,65 +208,72 @@ const Navbar = ({ setCurrentPage }) => {
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-4 lg:space-x-8">
-              <a 
-                href="#" 
-                className="text-white font-bold text-sm hover:text-orange-300 transition-colors cursor-pointer"
-                onClick={() => setCurrentPage('home')}
+              <Link 
+                to="/" 
+                className={`font-bold text-sm transition-colors cursor-pointer ${
+                  location.pathname === '/' ? 'text-orange-300' : 'text-white hover:text-orange-300'
+                }`}
               >
                 HOME
-              </a>
+              </Link>
               <div className="flex items-center space-x-1">
-                <a 
-                  href="#" 
-                  className="text-white font-bold text-sm hover:text-orange-300 transition-colors cursor-pointer"
-                  onClick={() => setCurrentPage('about')}
+                <Link 
+                  to="/about" 
+                  className={`font-bold text-sm transition-colors cursor-pointer ${
+                    location.pathname === '/about' ? 'text-orange-300' : 'text-white hover:text-orange-300'
+                  }`}
                 >
                   ABOUT US
-                </a>
+                </Link>
                 <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
                 </svg>
               </div>
               <div className="flex items-center space-x-1">
-                <a 
-                  href="#" 
-                  className="text-white font-bold text-sm hover:text-orange-300 transition-colors cursor-pointer"
-                  onClick={() => setCurrentPage('admission')}
+                <Link 
+                  to="/admission" 
+                  className={`font-bold text-sm transition-colors cursor-pointer ${
+                    location.pathname === '/admission' ? 'text-orange-300' : 'text-white hover:text-orange-300'
+                  }`}
                 >
                   ADMISSION
-                </a>
+                </Link>
                 <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
                 </svg>
               </div>
-              <a 
-                href="#" 
-                className="text-white font-bold text-sm hover:text-orange-300 transition-colors cursor-pointer"
-                onClick={() => setCurrentPage('facilities')}
+              <Link 
+                to="/facilities" 
+                className={`font-bold text-sm transition-colors cursor-pointer ${
+                  location.pathname === '/facilities' ? 'text-orange-300' : 'text-white hover:text-orange-300'
+                }`}
               >
                 FACILITIES
-              </a>
-              <a 
-                href="#" 
-                className="text-white font-bold text-sm hover:text-orange-300 transition-colors cursor-pointer"
-                onClick={() => setCurrentPage('disclosure')}
+              </Link>
+              <Link 
+                to="/disclosure" 
+                className={`font-bold text-sm transition-colors cursor-pointer ${
+                  location.pathname === '/disclosure' ? 'text-orange-300' : 'text-white hover:text-orange-300'
+                }`}
               >
                 MANDATORY PUBLIC DISCLOSURE
-              </a>
-              <a 
-                href="#" 
-                className="text-white font-bold text-sm hover:text-orange-300 transition-colors cursor-pointer"
-                onClick={() => setCurrentPage('gallery')}
+              </Link>
+              <Link 
+                to="/gallery" 
+                className={`font-bold text-sm transition-colors cursor-pointer ${
+                  location.pathname === '/gallery' ? 'text-orange-300' : 'text-white hover:text-orange-300'
+                }`}
               >
                 GALLERY
-              </a>
-              <a 
-                href="#" 
-                className="text-white font-bold text-sm hover:text-orange-300 transition-colors cursor-pointer"
-                onClick={() => setCurrentPage('contact')}
+              </Link>
+              <Link 
+                to="/contact" 
+                className={`font-bold text-sm transition-colors cursor-pointer ${
+                  location.pathname === '/contact' ? 'text-orange-300' : 'text-white hover:text-orange-300'
+                }`}
               >
                 CONTACT US
-              </a>
+              </Link>
             </div>
             
             {/* Search Icon */}
@@ -279,55 +288,69 @@ const Navbar = ({ setCurrentPage }) => {
           {isMobileMenuOpen && (
             <div className="md:hidden mt-4 pb-4">
               <div className="flex flex-col space-y-3">
-                <a 
-                  href="#" 
-                  className="text-white font-semibold text-sm hover:text-orange-300 transition-colors cursor-pointer"
-                  onClick={() => {setCurrentPage('home'); setIsMobileMenuOpen(false);}}
+                <Link 
+                  to="/" 
+                  className={`font-semibold text-sm transition-colors cursor-pointer ${
+                    location.pathname === '/' ? 'text-orange-300' : 'text-white hover:text-orange-300'
+                  }`}
+                  onClick={() => setIsMobileMenuOpen(false)}
                 >
                   HOME
-                </a>
-                <a 
-                  href="#" 
-                  className="text-white font-semibold text-sm hover:text-orange-300 transition-colors cursor-pointer"
-                  onClick={() => {setCurrentPage('about'); setIsMobileMenuOpen(false);}}
+                </Link>
+                <Link 
+                  to="/about" 
+                  className={`font-semibold text-sm transition-colors cursor-pointer ${
+                    location.pathname === '/about' ? 'text-orange-300' : 'text-white hover:text-orange-300'
+                  }`}
+                  onClick={() => setIsMobileMenuOpen(false)}
                 >
                   ABOUT US
-                </a>
-                <a 
-                  href="#" 
-                  className="text-white font-semibold text-sm hover:text-orange-300 transition-colors cursor-pointer"
-                  onClick={() => {setCurrentPage('admission'); setIsMobileMenuOpen(false);}}
+                </Link>
+                <Link 
+                  to="/admission" 
+                  className={`font-semibold text-sm transition-colors cursor-pointer ${
+                    location.pathname === '/admission' ? 'text-orange-300' : 'text-white hover:text-orange-300'
+                  }`}
+                  onClick={() => setIsMobileMenuOpen(false)}
                 >
                   ADMISSION
-                </a>
-                <a 
-                  href="#" 
-                  className="text-white font-semibold text-sm hover:text-orange-300 transition-colors cursor-pointer"
-                  onClick={() => {setCurrentPage('facilities'); setIsMobileMenuOpen(false);}}
+                </Link>
+                <Link 
+                  to="/facilities" 
+                  className={`font-semibold text-sm transition-colors cursor-pointer ${
+                    location.pathname === '/facilities' ? 'text-orange-300' : 'text-white hover:text-orange-300'
+                  }`}
+                  onClick={() => setIsMobileMenuOpen(false)}
                 >
                   FACILITIES
-                </a>
-                <a 
-                  href="#" 
-                  className="text-white font-semibold text-sm hover:text-orange-300 transition-colors cursor-pointer"
-                  onClick={() => {setCurrentPage('disclosure'); setIsMobileMenuOpen(false);}}
+                </Link>
+                <Link 
+                  to="/disclosure" 
+                  className={`font-semibold text-sm transition-colors cursor-pointer ${
+                    location.pathname === '/disclosure' ? 'text-orange-300' : 'text-white hover:text-orange-300'
+                  }`}
+                  onClick={() => setIsMobileMenuOpen(false)}
                 >
                   MANDATORY PUBLIC DISCLOSURE
-                </a>
-                <a 
-                  href="#" 
-                  className="text-white font-semibold text-sm hover:text-orange-300 transition-colors cursor-pointer"
-                  onClick={() => {setCurrentPage('gallery'); setIsMobileMenuOpen(false);}}
+                </Link>
+                <Link 
+                  to="/gallery" 
+                  className={`font-semibold text-sm transition-colors cursor-pointer ${
+                    location.pathname === '/gallery' ? 'text-orange-300' : 'text-white hover:text-orange-300'
+                  }`}
+                  onClick={() => setIsMobileMenuOpen(false)}
                 >
                   GALLERY
-                </a>
-                <a 
-                  href="#" 
-                  className="text-white font-semibold text-sm hover:text-orange-300 transition-colors cursor-pointer"
-                  onClick={() => {setCurrentPage('contact'); setIsMobileMenuOpen(false);}}
+                </Link>
+                <Link 
+                  to="/contact" 
+                  className={`font-semibold text-sm transition-colors cursor-pointer ${
+                    location.pathname === '/contact' ? 'text-orange-300' : 'text-white hover:text-orange-300'
+                  }`}
+                  onClick={() => setIsMobileMenuOpen(false)}
                 >
                   CONTACT US
-                </a>
+                </Link>
               </div>
             </div>
           )}

@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React from 'react'
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import Home from './components/Home'
@@ -10,37 +11,25 @@ import Gallery from './components/Gallery'
 import ContactUs from './components/ContactUs'
 
 const App = () => {
-  const [currentPage, setCurrentPage] = useState('home');
-
-  const renderPage = () => {
-    switch (currentPage) {
-      case 'home':
-        return <Home />;
-      case 'about':
-        return <AboutUs />;
-      case 'admission':
-        return <Admission />;
-      case 'facilities':
-        return <Facilities />;
-      case 'disclosure':
-        return <Disclosure />;
-      case 'gallery':
-        return <Gallery />;
-      case 'contact':
-        return <ContactUs />;
-      default:
-        return <Home />;
-    }
-  };
-
   return (
-    <div className="min-h-screen flex flex-col">
-      <Navbar setCurrentPage={setCurrentPage} />
-      <main className="flex-grow">
-        {renderPage()}
-      </main>
-      <Footer />
-    </div>
+    <Router>
+      <div className="min-h-screen flex flex-col">
+        <Navbar />
+        <main className="flex-grow">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<AboutUs />} />
+            <Route path="/admission" element={<Admission />} />
+            <Route path="/facilities" element={<Facilities />} />
+            <Route path="/disclosure" element={<Disclosure />} />
+            <Route path="/gallery" element={<Gallery />} />
+            <Route path="/contact" element={<ContactUs />} />
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
+    </Router>
   )
 }
 

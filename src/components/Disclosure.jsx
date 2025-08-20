@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import pdfFile from '../assets/newadd.pdf';
 
 const Disclosure = () => {
   const [activeTab, setActiveTab] = useState('A');
+  const [showPdfModal, setShowPdfModal] = useState(false);
 
   const tabs = [
     { id: 'A', label: 'A. GENERAL INFORMATION' },
@@ -71,6 +73,10 @@ const Disclosure = () => {
     { slNo: 11, information: 'Computer Teacher', details: 'Mrs. Shayla (BCA)' }
   ];
 
+  const handleViewDetails = () => {
+    setShowPdfModal(true);
+  };
+
   const renderTable = (data, hasDocument = false) => (
     <div className="overflow-x-auto">
       <table className="w-full border-collapse border border-gray-300 min-w-full">
@@ -91,9 +97,12 @@ const Disclosure = () => {
               <td className="border border-gray-300 px-2 md:px-4 py-2 text-xs md:text-sm">
                 {hasDocument ? (
                   item.document ? (
-                    <a href="#" className="text-blue-600 hover:text-blue-800 underline">
+                    <button 
+                      onClick={handleViewDetails}
+                      className="text-blue-600 hover:text-blue-800 underline cursor-pointer"
+                    >
                       {item.document}
-                    </a>
+                    </button>
                   ) : (
                     <span className="text-gray-400">-</span>
                   )
@@ -211,6 +220,45 @@ const Disclosure = () => {
           )}
         </div>
       </div>
+
+      {/* PDF Modal */}
+      {showPdfModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+          <div className="bg-white rounded-lg shadow-xl w-full max-w-6xl h-full max-h-[90vh] flex flex-col">
+            {/* Modal Header */}
+            <div className="flex items-center justify-between p-4 border-b border-gray-200">
+              <h3 className="text-lg font-semibold text-gray-800">Document Viewer</h3>
+              <button
+                onClick={() => setShowPdfModal(false)}
+                className="text-gray-500 hover:text-gray-700 transition-colors"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+            
+            {/* PDF Content */}
+            <div className="flex-1 p-4">
+              <iframe
+                src={pdfFile}
+                className="w-full h-full border border-gray-300 rounded"
+                title="PDF Document"
+              />
+            </div>
+            
+            {/* Modal Footer */}
+            <div className="flex items-center justify-end p-4 border-t border-gray-200">
+              <button
+                onClick={() => setShowPdfModal(false)}
+                className="px-4 py-2 bg-red-800 text-white rounded hover:bg-red-700 transition-colors"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
