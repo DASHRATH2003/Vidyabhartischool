@@ -16,7 +16,7 @@ const Disclosure = () => {
     { slNo: 2, information: 'Affiliation No. (If Applicable)', details: '831506' },
     { slNo: 3, information: 'School Code (If Applicable)', details: '47185' },
     { slNo: 4, information: 'Complete Address With Pin Code', details: 'Yeramaras Camp, RCR, Yeramaras Camp Raichur Pin - 584 135 Karnataka State' },
-    { slNo: 5, information: 'Principal Name & Qualification', details: 'Mr. Satyanarayana (B.A., M.Ed)' },
+    { slNo: 5, information: 'Principal Name & Qualification', details: 'Katyayani Hegdekatte (MA BED)' },
     { slNo: 6, information: 'School E-mail Id', details: 'federalpublicschool68@gmail.com' },
     { slNo: 7, information: 'Contact Details (Landline/Mobile)', details: '+91 94499 59786' }
   ];
@@ -73,12 +73,12 @@ const Disclosure = () => {
 
   const renderTable = (data, hasDocument = false) => (
     <div className="overflow-x-auto">
-      <table className="w-full border-collapse border border-gray-300">
+      <table className="w-full border-collapse border border-gray-300 min-w-full">
         <thead>
           <tr className="bg-gray-100">
-            <th className="border border-gray-300 px-4 py-2 text-left font-semibold">Sl. No.</th>
-            <th className="border border-gray-300 px-4 py-2 text-left font-semibold">Information</th>
-            <th className="border border-gray-300 px-4 py-2 text-left font-semibold">
+            <th className="border border-gray-300 px-2 md:px-4 py-2 text-left font-semibold text-xs md:text-sm">Sl. No.</th>
+            <th className="border border-gray-300 px-2 md:px-4 py-2 text-left font-semibold text-xs md:text-sm">Information</th>
+            <th className="border border-gray-300 px-2 md:px-4 py-2 text-left font-semibold text-xs md:text-sm">
               {hasDocument ? 'Uploaded Document' : 'Details'}
             </th>
           </tr>
@@ -86,9 +86,9 @@ const Disclosure = () => {
         <tbody>
           {data.map((item, index) => (
             <tr key={index} className="hover:bg-gray-50">
-              <td className="border border-gray-300 px-4 py-2">{item.slNo}</td>
-              <td className="border border-gray-300 px-4 py-2">{item.information}</td>
-              <td className="border border-gray-300 px-4 py-2">
+              <td className="border border-gray-300 px-2 md:px-4 py-2 text-xs md:text-sm">{item.slNo}</td>
+              <td className="border border-gray-300 px-2 md:px-4 py-2 text-xs md:text-sm">{item.information}</td>
+              <td className="border border-gray-300 px-2 md:px-4 py-2 text-xs md:text-sm">
                 {hasDocument ? (
                   item.document ? (
                     <a href="#" className="text-blue-600 hover:text-blue-800 underline">
@@ -98,7 +98,7 @@ const Disclosure = () => {
                     <span className="text-gray-400">-</span>
                   )
                 ) : (
-                  item.details
+                  <span className="break-words">{item.details}</span>
                 )}
               </td>
             </tr>
@@ -110,25 +110,25 @@ const Disclosure = () => {
 
   const renderResultTable = () => (
     <div className="mt-6">
-      <h3 className="text-xl font-bold text-orange-600 mb-4">RESULT CLASS X</h3>
+      <h3 className="text-lg md:text-xl font-bold text-orange-600 mb-4">RESULT CLASS X</h3>
       <div className="overflow-x-auto">
-        <table className="w-full border-collapse border border-gray-300">
+        <table className="w-full border-collapse border border-gray-300 min-w-full">
           <thead>
             <tr className="bg-gray-100">
-              <th className="border border-gray-300 px-4 py-2 text-left font-semibold">Sl. No.</th>
-              <th className="border border-gray-300 px-4 py-2 text-left font-semibold">Year</th>
-              <th className="border border-gray-300 px-4 py-2 text-left font-semibold">No. of Registered Students</th>
-              <th className="border border-gray-300 px-4 py-2 text-left font-semibold">No. of Students Passed</th>
-              <th className="border border-gray-300 px-4 py-2 text-left font-semibold">Pass Percentage</th>
+              <th className="border border-gray-300 px-2 md:px-4 py-2 text-left font-semibold text-xs md:text-sm">Sl. No.</th>
+              <th className="border border-gray-300 px-2 md:px-4 py-2 text-left font-semibold text-xs md:text-sm">Year</th>
+              <th className="border border-gray-300 px-2 md:px-4 py-2 text-left font-semibold text-xs md:text-sm">No. of Registered Students</th>
+              <th className="border border-gray-300 px-2 md:px-4 py-2 text-left font-semibold text-xs md:text-sm">No. of Students Passed</th>
+              <th className="border border-gray-300 px-2 md:px-4 py-2 text-left font-semibold text-xs md:text-sm">Pass Percentage</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td className="border border-gray-300 px-4 py-2"></td>
-              <td className="border border-gray-300 px-4 py-2">NOT APPLICABLE</td>
-              <td className="border border-gray-300 px-4 py-2"></td>
-              <td className="border border-gray-300 px-4 py-2"></td>
-              <td className="border border-gray-300 px-4 py-2"></td>
+              <td className="border border-gray-300 px-2 md:px-4 py-2 text-xs md:text-sm"></td>
+              <td className="border border-gray-300 px-2 md:px-4 py-2 text-xs md:text-sm">NOT APPLICABLE</td>
+              <td className="border border-gray-300 px-2 md:px-4 py-2 text-xs md:text-sm"></td>
+              <td className="border border-gray-300 px-2 md:px-4 py-2 text-xs md:text-sm"></td>
+              <td className="border border-gray-300 px-2 md:px-4 py-2 text-xs md:text-sm"></td>
             </tr>
           </tbody>
         </table>
@@ -137,11 +137,11 @@ const Disclosure = () => {
   );
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8">
+    <div className="min-h-screen bg-gray-50 py-4 md:py-8">
       <div className="max-w-7xl mx-auto px-4">
         {/* Breadcrumb */}
-        <div className="mb-6">
-          <nav className="text-sm text-gray-600">
+        <div className="mb-4 md:mb-6">
+          <nav className="text-xs md:text-sm text-gray-600">
             <a href="#" className="hover:text-red-800">Home</a>
             <span className="mx-2">{'>'}</span>
             <span className="text-gray-800">Mandatory Public Disclosure</span>
@@ -149,18 +149,18 @@ const Disclosure = () => {
         </div>
 
         {/* Main Title */}
-        <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-800 mb-2">Mandatory Public Disclosure</h1>
+        <div className="mb-6 md:mb-8">
+          <h1 className="text-2xl md:text-3xl font-bold text-gray-800 mb-2">Mandatory Public Disclosure</h1>
         </div>
 
         {/* Tabs */}
-        <div className="mb-6">
-          <div className="flex flex-wrap border-b border-gray-300">
+        <div className="mb-4 md:mb-6">
+          <div className="flex flex-wrap border-b border-gray-300 overflow-x-auto">
             {tabs.map((tab) => (
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`px-6 py-3 font-semibold text-sm transition-colors ${
+                className={`px-3 md:px-6 py-2 md:py-3 font-semibold text-xs md:text-sm transition-colors whitespace-nowrap ${
                   activeTab === tab.id
                     ? 'text-red-800 border-b-2 border-red-800 bg-white'
                     : 'text-gray-600 hover:text-red-800 hover:bg-gray-100'
@@ -173,24 +173,24 @@ const Disclosure = () => {
         </div>
 
         {/* Tab Content */}
-        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-4 md:p-6">
           {activeTab === 'A' && (
             <div>
-              <h2 className="text-xl font-bold text-red-800 mb-4">A. GENERAL INFORMATION</h2>
+              <h2 className="text-lg md:text-xl font-bold text-red-800 mb-4">A. GENERAL INFORMATION</h2>
               {renderTable(generalInfo)}
             </div>
           )}
 
           {activeTab === 'B' && (
             <div>
-              <h2 className="text-xl font-bold text-red-800 mb-4">B. DOCUMENTS AND INFORMATION</h2>
+              <h2 className="text-lg md:text-xl font-bold text-red-800 mb-4">B. DOCUMENTS AND INFORMATION</h2>
               {renderTable(documentsInfo, true)}
             </div>
           )}
 
           {activeTab === 'C' && (
             <div>
-              <h2 className="text-xl font-bold text-red-800 mb-4">C. RESULT AND ACADEMICS</h2>
+              <h2 className="text-lg md:text-xl font-bold text-red-800 mb-4">C. RESULT AND ACADEMICS</h2>
               {renderTable(resultInfo, true)}
               {renderResultTable()}
             </div>
@@ -198,14 +198,14 @@ const Disclosure = () => {
 
           {activeTab === 'D' && (
             <div>
-              <h2 className="text-xl font-bold text-red-800 mb-4">D. SCHOOL INFRASTRUCTURE</h2>
+              <h2 className="text-lg md:text-xl font-bold text-red-800 mb-4">D. SCHOOL INFRASTRUCTURE</h2>
               {renderTable(infrastructureInfo)}
             </div>
           )}
 
           {activeTab === 'E' && (
             <div>
-              <h2 className="text-xl font-bold text-red-800 mb-4">E. STAFF'S DETAILS</h2>
+              <h2 className="text-lg md:text-xl font-bold text-red-800 mb-4">E. STAFF'S DETAILS</h2>
               {renderTable(staffInfo)}
             </div>
           )}
