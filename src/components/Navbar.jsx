@@ -69,9 +69,10 @@ const Navbar = ({ setCurrentPage }) => {
                   </div>
                 </div>
                 <div className="text-center">
-                  <div className="text-xl font-bold text-red-800">VIDYA BHARATI ENGLISH</div>
-                  <div className="w-16 h-0.5 bg-gray-400 my-1 mx-auto"></div>
-                  <div className="text-lg font-bold text-blue-600">MEDIUM PRIMARY SCHOOL</div>
+                    <span>Vidya Bharati Shikshna Kendra </span>
+                  <div className="text-xl font-bold text-red-800">VIDYA BHARATI </div>
+                  <div className="text-lg font-bold text-blue-600"> ENGLISH MEDIUM PRIMARY SCHOOL -(CBSC)</div>
+                    <div className="text-lg font-bold text-blue-600"> RAICHUR</div>
                 </div>
               </div>
             </div>
@@ -87,7 +88,8 @@ const Navbar = ({ setCurrentPage }) => {
                 </div>
                 <div>
                   <div className="text-sm font-bold text-gray-800">CALL :</div>
-                  <div className="text-sm text-blue-600">+91 63619 66567, +91 94499 59786</div>
+                  <div className="text-sm text-blue-600">+91 8532-221980
+                  </div>
                 </div>
               </div>
               
@@ -134,11 +136,12 @@ const Navbar = ({ setCurrentPage }) => {
                   </svg>
                 </div>
               </div>
-              <div>
-                <div className="text-2xl font-bold text-red-800">VIDYA BHARATI ENGLISH</div>
-                <div className="w-16 h-0.5 bg-gray-400 my-1"></div>
-                <div className="text-xl font-bold text-blue-600">MEDIUM PRIMARY SCHOOL</div>
-              </div>
+              <div >
+                    <span>Vidya Bharati Shikshna Kendra </span>
+                  <div className="text-xl font-bold text-red-800">VIDYA BHARATI </div>
+                  <div className="text-lg font-bold text-blue-600"> ENGLISH MEDIUM PRIMARY SCHOOL -(CBSC) </div>
+                    <div className="text-lg font-bold text-blue-600"> RAICHUR</div>
+                </div>
             </div>
             
             {/* Contact Info Section - Desktop */}
@@ -152,7 +155,7 @@ const Navbar = ({ setCurrentPage }) => {
                 </div>
                 <div>
                   <div className="text-sm font-bold text-gray-800">CALL :</div>
-                  <div className="text-xs text-gray-600">+91 63619 66567, +91 94499 59786</div>
+                  <div className="text-xs text-gray-600">+91 8532-221980                  </div>
                 </div>
               </div>
               
@@ -179,7 +182,7 @@ const Navbar = ({ setCurrentPage }) => {
                 </div>
                 <div>
                   <div className="text-sm font-bold text-gray-800">AFFILIATED TO CBSE</div>
-                  <div className="text-xs text-gray-600">AFF NO.: 831506 | CODE: 47185</div>
+                  <div className="text-xs text-gray-600">AFF NO.: 830589 | CODE: 45582</div>
                 </div>
               </div>
             </div>

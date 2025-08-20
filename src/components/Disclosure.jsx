@@ -13,12 +13,12 @@ const Disclosure = () => {
 
   const generalInfo = [
     { slNo: 1, information: 'Name of The School', details: 'Vidya Bharati English Medium Primary School' },
-    { slNo: 2, information: 'Affiliation No. (If Applicable)', details: '831506' },
-    { slNo: 3, information: 'School Code (If Applicable)', details: '47185' },
+    { slNo: 2, information: 'Affiliation No. (If Applicable)', details: '830589' },
+    { slNo: 3, information: 'School Code (If Applicable)', details: '45582' },
     { slNo: 4, information: 'Complete Address With Pin Code', details: 'Yeramaras Camp, RCR, Yeramaras Camp Raichur Pin - 584 135 Karnataka State' },
     { slNo: 5, information: 'Principal Name & Qualification', details: 'Katyayani Hegdekatte (MA BED)' },
-    { slNo: 6, information: 'School E-mail Id', details: 'federalpublicschool68@gmail.com' },
-    { slNo: 7, information: 'Contact Details (Landline/Mobile)', details: '+91 94499 59786' }
+    { slNo: 6, information: 'School E-mail Id', details: 'vbskcbse2014@gmail.com' },
+    { slNo: 7, information: 'Contact Details (Landline/Mobile)', details: '+91 8532-221980' }
   ];
 
   const documentsInfo = [
@@ -38,7 +38,7 @@ const Disclosure = () => {
     { slNo: 2, information: 'Annual Academics Calendar', document: 'View Details' },
     { slNo: 3, information: 'List of School Management Committee (SMC)', document: 'View Details' },
     { slNo: 4, information: 'List of Parents Teachers Association (PTA) Members', document: 'View Details' },
-    { slNo: 5, information: 'Last Three-Year Result of The Board Examination As Per Applicability', document: '' }
+    { slNo: 5, information: 'Last Three-Year Result of The Board Examination As Per Applicability', document: 'View Details' }
   ];
 
   const infrastructureInfo = [
