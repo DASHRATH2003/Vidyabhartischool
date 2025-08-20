@@ -251,9 +251,9 @@ const Navbar = () => {
                 FACILITIES
               </Link>
               <Link 
-                to="/disclosure" 
+                to="/MandatoryPublicdisClosure" 
                 className={`font-bold text-sm transition-colors cursor-pointer ${
-                  location.pathname === '/disclosure' ? 'text-orange-300' : 'text-white hover:text-orange-300'
+                  location.pathname === '/mandatorypublicdisclosure' ? 'text-orange-300' : 'text-white hover:text-orange-300'
                 }`}
               >
                 MANDATORY PUBLIC DISCLOSURE
@@ -325,13 +325,13 @@ const Navbar = () => {
                   FACILITIES
                 </Link>
                 <Link 
-                  to="/disclosure" 
+                  to="/mandatorypublicdisclosure" 
                   className={`font-semibold text-sm transition-colors cursor-pointer ${
-                    location.pathname === '/disclosure' ? 'text-orange-300' : 'text-white hover:text-orange-300'
+                    location.pathname === '/mandatorypublicdisclosure' ? 'text-orange-300' : 'text-white hover:text-orange-300'
                   }`}
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
-                  MANDATORY PUBLIC DISCLOSURE
+                  MANDATORYPUBLICDISCLOSURE
                 </Link>
                 <Link 
                   to="/gallery" 
