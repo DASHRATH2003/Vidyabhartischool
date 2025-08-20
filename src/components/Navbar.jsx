@@ -73,7 +73,7 @@ const Navbar = () => {
                 <div className="text-center">
                   <span>Vidya Bharati Shikshna Kendra </span>
                   <div className="text-xl font-bold text-red-800">VIDYA BHARATI </div>
-                  <div className="text-lg font-bold text-blue-600"> ENGLISH MEDIUM PRIMARY SCHOOL -(CBSC)</div>
+                  <div className="text-lg font-bold text-blue-600"> ENGLISH MEDIUM PRIMARY SCHOOL -(CBSE)</div>
                   <div className="text-lg font-bold text-blue-600"> RAICHUR</div>
                 </div>
               </Link>
@@ -141,7 +141,7 @@ const Navbar = () => {
               <div >
                 <span>Vidya Bharati Shikshna Kendra </span>
                 <div className="text-xl font-bold text-red-800">VIDYA BHARATI </div>
-                <div className="text-lg font-bold text-blue-600"> ENGLISH MEDIUM PRIMARY SCHOOL -(CBSC) </div>
+                <div className="text-lg font-bold text-blue-600"> ENGLISH MEDIUM PRIMARY SCHOOL -(CBSE) </div>
                 <div className="text-lg font-bold text-blue-600"> RAICHUR</div>
               </div>
             </Link>
