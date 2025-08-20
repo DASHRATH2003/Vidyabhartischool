@@ -1,0 +1,218 @@
+import React, { useState } from 'react';
+
+const Disclosure = () => {
+  const [activeTab, setActiveTab] = useState('A');
+
+  const tabs = [
+    { id: 'A', label: 'A. GENERAL INFORMATION' },
+    { id: 'B', label: 'B. DOCUMENTS AND INFORMATION' },
+    { id: 'C', label: 'C. RESULT AND ACADEMICS' },
+    { id: 'D', label: 'D. SCHOOL INFRASTRUCTURE' },
+    { id: 'E', label: 'E. STAFF\'S DETAILS' }
+  ];
+
+  const generalInfo = [
+    { slNo: 1, information: 'Name of The School', details: 'Vidya Bharati English Medium Primary School' },
+    { slNo: 2, information: 'Affiliation No. (If Applicable)', details: '831506' },
+    { slNo: 3, information: 'School Code (If Applicable)', details: '47185' },
+    { slNo: 4, information: 'Complete Address With Pin Code', details: 'Yeramaras Camp, RCR, Yeramaras Camp Raichur Pin - 584 135 Karnataka State' },
+    { slNo: 5, information: 'Principal Name & Qualification', details: 'Mr. Satyanarayana (B.A., M.Ed)' },
+    { slNo: 6, information: 'School E-mail Id', details: 'federalpublicschool68@gmail.com' },
+    { slNo: 7, information: 'Contact Details (Landline/Mobile)', details: '+91 94499 59786' }
+  ];
+
+  const documentsInfo = [
+    { slNo: 1, information: 'Copies of Affiliation Letter', document: 'View Details' },
+    { slNo: 2, information: 'Copies of Trust Deed', document: 'View Details' },
+    { slNo: 3, information: 'Copy of No Objection Certificate (NOC) Issued, by The State Govt. /UT', document: 'View Details' },
+    { slNo: 4, information: 'Copy of Recognition Certificate', document: 'View Details' },
+    { slNo: 5, information: 'Copy of valid Building safety Certificate issued by Department of Public Works', document: 'View Details' },
+    { slNo: 6, information: 'Copies of Valid Fire Safety Certificate Issued by the Competent Authority', document: 'View Details' },
+    { slNo: 7, information: 'Copies of Valid Water, Health And Sanitation Certificates', document: 'View Details' },
+    { slNo: 8, information: 'Copies of Land Certificates', document: 'View Details' },
+    { slNo: 9, information: 'Self Declaration', document: 'View Details' }
+  ];
+
+  const resultInfo = [
+    { slNo: 1, information: 'Fee Structure of The School', document: 'View Details' },
+    { slNo: 2, information: 'Annual Academics Calendar', document: 'View Details' },
+    { slNo: 3, information: 'List of School Management Committee (SMC)', document: 'View Details' },
+    { slNo: 4, information: 'List of Parents Teachers Association (PTA) Members', document: 'View Details' },
+    { slNo: 5, information: 'Last Three-Year Result of The Board Examination As Per Applicability', document: '' }
+  ];
+
+  const infrastructureInfo = [
+    { slNo: 1, information: 'Total Campus Area of The School (In Square Mtr)', details: '34094 (In Square Mtr)' },
+    { slNo: 2, information: 'No. Class Rooms', details: '30' },
+    { slNo: 3, information: 'Size of The Class Rooms (In Square Mtr)', details: '7.92X6.71=47 (In Square Mtr)' },
+    { slNo: 4, information: 'No. and Size of Laboratories Including Computer Labs (In Sq. Mtr)', details: '265.69 (In Sq. Mtr)' },
+    { slNo: 5, information: 'Computer Lab - 01', details: '7.92X13.43=106.29 (In Sq. Mtr)' },
+    { slNo: 6, information: 'Composite Science Lab - 01', details: '7.92X13.42=106.29 (In Sq. Mtr)' },
+    { slNo: 7, information: 'Chemistry Lab - 01', details: '0' },
+    { slNo: 8, information: 'Biology Lab - 01', details: '0' },
+    { slNo: 9, information: 'Maths Lab - 01', details: '7.92X6.71=53.14 (In Sq. Mtr)' },
+    { slNo: 10, information: 'Internet Facility (Y/N)', details: 'Yes' },
+    { slNo: 11, information: 'No. of Girls Toilets', details: '24' },
+    { slNo: 12, information: 'No. of Boys Toilets', details: '22' },
+    { slNo: 13, information: 'Link of YouTube Video of The Inspection of School Covering The Infrastructure of The School', details: 'YES' }
+  ];
+
+  const staffInfo = [
+    { slNo: 1, information: 'Principal', details: 'Katyayani Hegdekatte (MA BED)' },
+    { slNo: 2, information: 'Total No. of Teachers', details: '26' },
+    { slNo: 3, information: 'PGT', details: '07' },
+    { slNo: 4, information: 'PRT', details: '10' },
+    { slNo: 5, information: 'TGT', details: '03' },
+    { slNo: 6, information: 'PTI', details: 'Mr. Pranesh (B.Ped)' },
+    { slNo: 7, information: 'Librarian', details: 'Bee.Bee. Amina (B.A, B.ed, D.Lib)' },
+    { slNo: 8, information: 'Teachers Section Ratio', details: '1:1.5' },
+    { slNo: 9, information: 'Details of Special Educators', details: 'Mrs. Shaheen Sultana (M.A)' },
+    { slNo: 10, information: 'Details of Counseling and Wellness Teacher', details: 'Mrs. Ruksana Begum (M.A., M.ed)' },
+    { slNo: 11, information: 'Computer Teacher', details: 'Mrs. Shayla (BCA)' }
+  ];
+
+  const renderTable = (data, hasDocument = false) => (
+    <div className="overflow-x-auto">
+      <table className="w-full border-collapse border border-gray-300">
+        <thead>
+          <tr className="bg-gray-100">
+            <th className="border border-gray-300 px-4 py-2 text-left font-semibold">Sl. No.</th>
+            <th className="border border-gray-300 px-4 py-2 text-left font-semibold">Information</th>
+            <th className="border border-gray-300 px-4 py-2 text-left font-semibold">
+              {hasDocument ? 'Uploaded Document' : 'Details'}
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          {data.map((item, index) => (
+            <tr key={index} className="hover:bg-gray-50">
+              <td className="border border-gray-300 px-4 py-2">{item.slNo}</td>
+              <td className="border border-gray-300 px-4 py-2">{item.information}</td>
+              <td className="border border-gray-300 px-4 py-2">
+                {hasDocument ? (
+                  item.document ? (
+                    <a href="#" className="text-blue-600 hover:text-blue-800 underline">
+                      {item.document}
+                    </a>
+                  ) : (
+                    <span className="text-gray-400">-</span>
+                  )
+                ) : (
+                  item.details
+                )}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+
+  const renderResultTable = () => (
+    <div className="mt-6">
+      <h3 className="text-xl font-bold text-orange-600 mb-4">RESULT CLASS X</h3>
+      <div className="overflow-x-auto">
+        <table className="w-full border-collapse border border-gray-300">
+          <thead>
+            <tr className="bg-gray-100">
+              <th className="border border-gray-300 px-4 py-2 text-left font-semibold">Sl. No.</th>
+              <th className="border border-gray-300 px-4 py-2 text-left font-semibold">Year</th>
+              <th className="border border-gray-300 px-4 py-2 text-left font-semibold">No. of Registered Students</th>
+              <th className="border border-gray-300 px-4 py-2 text-left font-semibold">No. of Students Passed</th>
+              <th className="border border-gray-300 px-4 py-2 text-left font-semibold">Pass Percentage</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td className="border border-gray-300 px-4 py-2"></td>
+              <td className="border border-gray-300 px-4 py-2">NOT APPLICABLE</td>
+              <td className="border border-gray-300 px-4 py-2"></td>
+              <td className="border border-gray-300 px-4 py-2"></td>
+              <td className="border border-gray-300 px-4 py-2"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
+
+  return (
+    <div className="min-h-screen bg-gray-50 py-8">
+      <div className="max-w-7xl mx-auto px-4">
+        {/* Breadcrumb */}
+        <div className="mb-6">
+          <nav className="text-sm text-gray-600">
+            <a href="#" className="hover:text-red-800">Home</a>
+            <span className="mx-2">{'>'}</span>
+            <span className="text-gray-800">Mandatory Public Disclosure</span>
+          </nav>
+        </div>
+
+        {/* Main Title */}
+        <div className="mb-8">
+          <h1 className="text-3xl font-bold text-gray-800 mb-2">Mandatory Public Disclosure</h1>
+        </div>
+
+        {/* Tabs */}
+        <div className="mb-6">
+          <div className="flex flex-wrap border-b border-gray-300">
+            {tabs.map((tab) => (
+              <button
+                key={tab.id}
+                onClick={() => setActiveTab(tab.id)}
+                className={`px-6 py-3 font-semibold text-sm transition-colors ${
+                  activeTab === tab.id
+                    ? 'text-red-800 border-b-2 border-red-800 bg-white'
+                    : 'text-gray-600 hover:text-red-800 hover:bg-gray-100'
+                }`}
+              >
+                {tab.label}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* Tab Content */}
+        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+          {activeTab === 'A' && (
+            <div>
+              <h2 className="text-xl font-bold text-red-800 mb-4">A. GENERAL INFORMATION</h2>
+              {renderTable(generalInfo)}
+            </div>
+          )}
+
+          {activeTab === 'B' && (
+            <div>
+              <h2 className="text-xl font-bold text-red-800 mb-4">B. DOCUMENTS AND INFORMATION</h2>
+              {renderTable(documentsInfo, true)}
+            </div>
+          )}
+
+          {activeTab === 'C' && (
+            <div>
+              <h2 className="text-xl font-bold text-red-800 mb-4">C. RESULT AND ACADEMICS</h2>
+              {renderTable(resultInfo, true)}
+              {renderResultTable()}
+            </div>
+          )}
+
+          {activeTab === 'D' && (
+            <div>
+              <h2 className="text-xl font-bold text-red-800 mb-4">D. SCHOOL INFRASTRUCTURE</h2>
+              {renderTable(infrastructureInfo)}
+            </div>
+          )}
+
+          {activeTab === 'E' && (
+            <div>
+              <h2 className="text-xl font-bold text-red-800 mb-4">E. STAFF'S DETAILS</h2>
+              {renderTable(staffInfo)}
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Disclosure; 
