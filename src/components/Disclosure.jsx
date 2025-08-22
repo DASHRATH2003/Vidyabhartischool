@@ -1,9 +1,15 @@
 import React, { useState } from 'react';
 import pdfFile from '../assets/newadd.pdf';
+import image417 from '../assets/417.jpg';
+import image445 from '../assets/445.jpg';
+import image456 from '../assets/456.jpg';
+import image431 from '../assets/431.jpg';
 
 const Disclosure = () => {
   const [activeTab, setActiveTab] = useState('A');
   const [showPdfModal, setShowPdfModal] = useState(false);
+  const [showImageModal, setShowImageModal] = useState(false);
+  const [selectedImage, setSelectedImage] = useState(null);
 
   const tabs = [
     { id: 'A', label: 'A. GENERAL INFORMATION' },
@@ -24,15 +30,15 @@ const Disclosure = () => {
   ];
 
   const documentsInfo = [
-    { slNo: 1, information: 'Copies of Affiliation Letter', document: 'View Details' },
-    { slNo: 2, information: 'Copies of Trust Deed', document: 'View Details' },
-    { slNo: 3, information: 'Copy of No Objection Certificate (NOC) Issued, by The State Govt. /UT', document: 'View Details' },
-    { slNo: 4, information: 'Copy of Recognition Certificate', document: 'View Details' },
-    { slNo: 5, information: 'Copy of valid Building safety Certificate issued by Department of Public Works', document: 'View Details' },
-    { slNo: 6, information: 'Copies of Valid Fire Safety Certificate Issued by the Competent Authority', document: 'View Details' },
-    { slNo: 7, information: 'Copies of Valid Water, Health And Sanitation Certificates', document: 'View Details' },
-    { slNo: 8, information: 'Copies of Land Certificates', document: 'View Details' },
-    { slNo: 9, information: 'Self Declaration', document: 'View Details' }
+    { slNo: 1, information: 'Copies of Affiliation Letter', document: 'View Details', image: null },
+    { slNo: 2, information: 'Copies of Trust Deed', document: 'View Details', image: null },
+    { slNo: 3, information: 'Copy of No Objection Certificate (NOC) Issued, by The State Govt. /UT', document: 'View Details', image: null },
+    { slNo: 4, information: 'Copy of Recognition Certificate', document: 'View Details', image: image417 },
+    { slNo: 5, information: 'Copy of valid Building safety Certificate issued by Department of Public Works', document: 'View Details', image: image445 },
+    { slNo: 6, information: 'Copies of Valid Fire Safety Certificate Issued by the Competent Authority', document: 'View Details', image: null },
+    { slNo: 7, information: 'Copies of Valid Water, Health And Sanitation Certificates', document: 'View Details', image: image456 },
+    { slNo: 8, information: 'Copies of Land Certificates', document: 'View Details', image: image431 },
+    { slNo: 9, information: 'Self Declaration', document: 'View Details', image: null }
   ];
 
   const resultInfo = [
@@ -73,8 +79,13 @@ const Disclosure = () => {
     { slNo: 11, information: 'Computer Teacher', details: 'Mrs. Shayla (BCA)' }
   ];
 
-  const handleViewDetails = () => {
-    setShowPdfModal(true);
+  const handleViewDetails = (image = null) => {
+    if (image) {
+      setSelectedImage(image);
+      setShowImageModal(true);
+    } else {
+      setShowPdfModal(true);
+    }
   };
 
   const renderTable = (data, hasDocument = false) => (
@@ -98,7 +109,7 @@ const Disclosure = () => {
                 {hasDocument ? (
                   item.document ? (
                     <button 
-                      onClick={handleViewDetails}
+                      onClick={() => handleViewDetails(item.image)}
                       className="text-blue-600 hover:text-blue-800 underline cursor-pointer"
                     >
                       {item.document}
@@ -251,6 +262,46 @@ const Disclosure = () => {
             <div className="flex items-center justify-end p-4 border-t border-gray-200">
               <button
                 onClick={() => setShowPdfModal(false)}
+                className="px-4 py-2 bg-red-800 text-white rounded hover:bg-red-700 transition-colors"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Image Modal */}
+      {showImageModal && selectedImage && (
+        <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 p-4">
+          <div className="bg-white rounded-lg shadow-xl w-full max-w-5xl h-full max-h-[95vh] flex flex-col">
+            {/* Modal Header */}
+            <div className="flex items-center justify-between p-3 border-b border-gray-200 flex-shrink-0">
+              <h3 className="text-lg font-semibold text-gray-800">Document Image</h3>
+              <button
+                onClick={() => setShowImageModal(false)}
+                className="text-gray-500 hover:text-gray-700 transition-colors"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+            
+            {/* Image Content */}
+            <div className="flex-1 p-2 flex items-center justify-center overflow-hidden">
+              <img
+                src={selectedImage}
+                alt="Document"
+                className="max-w-full max-h-full object-contain w-auto h-auto"
+                style={{ maxHeight: 'calc(95vh - 120px)' }}
+              />
+            </div>
+            
+            {/* Modal Footer */}
+            <div className="flex items-center justify-end p-3 border-t border-gray-200 flex-shrink-0">
+              <button
+                onClick={() => setShowImageModal(false)}
                 className="px-4 py-2 bg-red-800 text-white rounded hover:bg-red-700 transition-colors"
               >
                 Close

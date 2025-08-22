@@ -21,7 +21,7 @@ const App = () => {
             <Route path="/about" element={<AboutUs />} />
             <Route path="/admission" element={<Admission />} />
             <Route path="/facilities" element={<Facilities />} />
-            <Route path="/mandatorypublicdisclosure" element={<Disclosure/>} />
+            <Route path="/MandatoryPublicdisClosure" element={<Disclosure/>} />
             <Route path="/gallery" element={<Gallery />} />
             <Route path="/contact" element={<ContactUs />} />
             <Route path="*" element={<Navigate to="/" replace />} />
